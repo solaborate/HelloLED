@@ -36,7 +36,6 @@ public class LedAnimation {
             mOutputBuffer.clear();
             mOutputBuffer.put(rgbData);
             LedsFrameData.write(mOutputBuffer, rgbData.length);
-            Log.d(TAG, "Wrote colors in LED ring");
         } catch (IOException e) {
             Log.e(TAG, "write rgb data error:", e);
         }

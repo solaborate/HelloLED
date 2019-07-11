@@ -4,7 +4,6 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.1'
@@ -17,8 +16,15 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+
+        maven {
+            url 'https://dl.bintray.com/solaborate/maven/'
+        }
     }
+}
+
+subprojects {
+    tasks.withType(Javadoc).all { enabled = false }
 }
 
 task clean(type: Delete) {

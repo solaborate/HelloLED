@@ -18,34 +18,64 @@ public class MainActivity extends AppCompatActivity {
         ledAnimation = new LedAnimation();
     }
 
-    public void startLedAnimation(View v){
-        // create a string that contains up to 24 color hex values, one for each led on the ring
-        String colors =  "f95c2b" + "0095da" + "0095da" +
-                "0095da" + "0095da" + "0095da" +
-                "0095da" + "0095da" + "0095da" +
-                "45ca4e" + "45ca4e" + "45ca4e" +
-                "45ca4e" + "45ca4e" + "f9f42b" +
-                "f9f42b" + "f9f42b" + "f9f42b" +
-                "f96f2b" + "f96f2b" + "f95c2b" +
-                "f95c2b" + "f95c2b" + "f95c2b";
+    public void redLedAnimation(View v) {
+        // create a string that contains 24 color hex values, one for each led on the ring
+        String redColor = "ff0000";
+        String colors = redColor + redColor + redColor +
+                redColor + redColor + redColor +
+                redColor + redColor + redColor +
+                redColor + redColor + redColor +
+                redColor + redColor + redColor +
+                redColor + redColor + redColor +
+                redColor + redColor + redColor +
+                redColor + redColor + redColor;
         showLedColors(colors);
     }
 
-    public void stopLedAnimation(View v){
+    public void greenLedAnimation(View v) {
+        // create a string that contains 24 color hex values, one for each led on the ring
+        String greenColor = "00ff00";
+        String colors = greenColor + greenColor + greenColor +
+                greenColor + greenColor + greenColor +
+                greenColor + greenColor + greenColor +
+                greenColor + greenColor + greenColor +
+                greenColor + greenColor + greenColor +
+                greenColor + greenColor + greenColor +
+                greenColor + greenColor + greenColor +
+                greenColor + greenColor + greenColor;
+        showLedColors(colors);
+    }
+
+    public void blueLedAnimation(View v) {
+        // create a string that contains 24 color hex values, one for each led on the ring
+        String blueColor = "0000ff";
+        String colors = blueColor + blueColor + blueColor +
+                blueColor + blueColor + blueColor +
+                blueColor + blueColor + blueColor +
+                blueColor + blueColor + blueColor +
+                blueColor + blueColor + blueColor +
+                blueColor + blueColor + blueColor +
+                blueColor + blueColor + blueColor +
+                blueColor + blueColor + blueColor;
+        showLedColors(colors);
+    }
+
+    public void stopLedAnimation(View v) {
         // this function will not shut down the Led Ring, but will show black colors on it
         // create a string that contains 24 black color hex
-        String colors =  "000000" + "000000" + "000000" +
-                "000000" + "000000" + "000000" +
-                "000000" + "000000" + "000000" +
-                "000000" + "000000" + "000000" +
-                "000000" + "000000" + "000000" +
-                "000000" + "000000" + "000000" +
-                "000000" + "000000" + "000000" +
-                "000000" + "000000" + "000000";
+        String blackColor = "000000";
+        String colors = blackColor + blackColor + blackColor +
+                blackColor + blackColor + blackColor +
+                blackColor + blackColor + blackColor +
+                blackColor + blackColor + blackColor +
+                blackColor + blackColor + blackColor +
+                blackColor + blackColor + blackColor +
+                blackColor + blackColor + blackColor +
+                blackColor + blackColor + blackColor;
         showLedColors(colors);
     }
 
-    private void showLedColors(String colors){
+    private void showLedColors(String colors) {
         // convert colors string to byte array
         byte[] b = hexStringToByteArray(colors);
 

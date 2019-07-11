@@ -8,7 +8,6 @@ public class LedsFrameData {
 		System.loadLibrary("LedsJNI");
 	}
     static void write(ByteBuffer buffer, int length) throws IOException {
-    	//Log.d(TAG, "writeArray----------");
 		if (buffer.isDirect()) {
 			writeDirect(buffer, length);
 		} else if (buffer.hasArray()) {

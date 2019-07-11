@@ -9,14 +9,31 @@
 
 
     <Button
-        android:id="@+id/btnStartLED"
+        android:id="@+id/btnRed"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="Start LED"
+        android:text="Red LED"
         android:layout_margin="10dp"
-        android:onClick="startLedAnimation"
-        android:backgroundTint="@android:color/holo_blue_dark"
-        android:textColor="@android:color/white"/>
+        android:onClick="redLedAnimation"
+        android:textColor="#ff0000"/>
+
+    <Button
+        android:id="@+id/btnGreen"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Green LED"
+        android:layout_margin="10dp"
+        android:onClick="greenLedAnimation"
+        android:textColor="#00ff00"/>
+
+    <Button
+        android:id="@+id/btnBlue"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Blue LED"
+        android:layout_margin="10dp"
+        android:onClick="blueLedAnimation"
+        android:textColor="#0000ff"/>
 
     <Button
         android:id="@+id/btnStopLED"
@@ -25,7 +42,6 @@
         android:text="Stop LED"
         android:layout_margin="10dp"
         android:onClick="stopLedAnimation"
-        android:backgroundTint="@android:color/secondary_text_light"
-        android:textColor="@android:color/white"/>
+        android:textColor="#000000"/>
 
 </LinearLayout>
