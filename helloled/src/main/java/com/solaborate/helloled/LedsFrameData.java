@@ -17,6 +17,6 @@ public class LedsFrameData {
 		}		
 
     }	
-	private static native void writeArray(byte[] buffer, int length,writePath) throws IOException;	//writeArray
-	private static native void writeDirect(ByteBuffer buffer, int length, writePath) throws IOException;	//writeDirect
+	private static native void writeArray(byte[] buffer, int length, String writePath) throws IOException;	//writeArray
+	private static native void writeDirect(ByteBuffer buffer, int length, String writePath) throws IOException;	//writeDirect
 }
