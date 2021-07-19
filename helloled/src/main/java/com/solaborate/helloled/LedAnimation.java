@@ -15,8 +15,14 @@ public class LedAnimation {
 
     private final String TAG = "LEDRing";
     private ByteBuffer mOutputBuffer = ByteBuffer.allocate(1024);//allocateDirect,allocate
+    private String writePath = "/dev/leds_3731";
 
-    public LedAnimation(){}
+    public LedAnimation() {
+    }
+
+    public LedAnimation(String writePath) {
+        this.writePath = writePath;
+    }
 
     /**
      * Writes colors in Hello LedRing
@@ -35,7 +41,7 @@ public class LedAnimation {
         try {
             mOutputBuffer.clear();
             mOutputBuffer.put(rgbData);
-            LedsFrameData.write(mOutputBuffer, rgbData.length);
+            LedsFrameData.write(mOutputBuffer, rgbData.length, writePath);
         } catch (IOException e) {
             Log.e(TAG, "write rgb data error:", e);
         }

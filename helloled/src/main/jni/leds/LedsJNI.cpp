@@ -8,7 +8,7 @@
 #include "LedsJNI.h"
 #include <stdlib.h> // pulls in declaration of malloc, free
 
-void Java_com_solaborate_helloled_LedsFrameData_writeArray(JNIEnv *env, jobject clazz, jbyteArray buffer, jint length)
+void Java_com_solaborate_helloled_LedsFrameData_writeArray(JNIEnv *env, jobject clazz, jbyteArray buffer, jint length, jstring path)
 {
     int fd, i;
     const char *filename = "/dev/leds_3731";
@@ -31,7 +31,7 @@ void Java_com_solaborate_helloled_LedsFrameData_writeArray(JNIEnv *env, jobject 
     close(fd);
 }
 
-void Java_com_solaborate_helloled_LedsFrameData_writeDirect(JNIEnv *env, jobject clazz, jobject buffer, jint length)
+void Java_com_solaborate_helloled_LedsFrameData_writeDirect(JNIEnv *env, jobject clazz, jobject buffer, jint length, jstring path)
 {
     int fd, i;
     const char *filename = "/dev/leds_3731";
