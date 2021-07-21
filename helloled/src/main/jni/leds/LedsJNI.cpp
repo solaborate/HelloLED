@@ -8,10 +8,10 @@
 #include "LedsJNI.h"
 #include <stdlib.h> // pulls in declaration of malloc, free
 
-void Java_com_solaborate_helloled_LedsFrameData_writeArray(JNIEnv *env, jobject clazz, jbyteArray buffer, jint length)
+extern "C" void Java_com_solaborate_helloled_LedsFrameData_writeArray(JNIEnv *env, jclass clazz, jbyteArray buffer, jint length, jstring path)
 {
     int fd, i;
-    const char *filename = "/dev/leds_3731";
+    const char *filename = env->GetStringUTFChars(path, nullptr);
 
     fd = open(filename, O_WRONLY);
     if (fd < 0)
@@ -29,12 +29,13 @@ void Java_com_solaborate_helloled_LedsFrameData_writeArray(JNIEnv *env, jobject 
     jint ret = write(fd, buf, length);
     free(buf);
     close(fd);
+    env->ReleaseStringUTFChars(path, filename);
 }
 
-void Java_com_solaborate_helloled_LedsFrameData_writeDirect(JNIEnv *env, jobject clazz, jobject buffer, jint length)
+extern "C" void Java_com_solaborate_helloled_LedsFrameData_writeDirect(JNIEnv *env, jclass clazz, jobject buffer, jint length, jstring path)
 {
     int fd, i;
-    const char *filename = "/dev/leds_3731";
+    const char *filename = env->GetStringUTFChars(path, nullptr);
 
     fd = open(filename, O_WRONLY);
     if (fd < 0)
@@ -50,4 +51,5 @@ void Java_com_solaborate_helloled_LedsFrameData_writeDirect(JNIEnv *env, jobject
     int ret = write(fd, buf, length);
     free(buf);
     close(fd);
+    env->ReleaseStringUTFChars(path, filename);
 }
